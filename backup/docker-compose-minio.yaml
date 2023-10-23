@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  minioserver:
+    image: minio/minio
+    container_name: minio_a3
+    ports:
+      - 9000:9000
+      - 9001:9001
+    environment:
+      MINIO_ROOT_USER: dashaqui
+      MINIO_ROOT_PASSWORD: dashaqui
+    volumes:
+      - ../data/minio:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - lakehouse_a3
+
+networks:
+  lakehouse_a3:
+    driver: bridge

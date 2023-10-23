@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  dremio:
+    image: dremio/dremio-oss:24.2
+    container_name: dremio_a3
+    ports:
+      - "9047:9047"  # Interface
+      - "31010:31010"  # Consultas SQL
+    environment:
+      - DREMIO_MAX_DIRECT_MEMORY_SIZE_MB=4096
+      - DREMIO_MAX_HEAP_MEMORY_SIZE_MB=4096
+    volumes:
+      - ../data/dremio/data:/data
+      - ../data/dremio/logs:/var/log/dremio
