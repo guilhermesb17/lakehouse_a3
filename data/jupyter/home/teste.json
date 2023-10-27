@@ -1,0 +1,41 @@
+{
+  "data": "2023-10-25",
+  "vacinacao": [
+    {
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "total_vacinados": 12000000,
+      "doses": {
+        "primeira_dose": 11500000,
+        "segunda_dose": 11000000,
+        "dose_unica": 200000,
+        "terceira_dose": 1500000
+      },
+      "vacinados_por_idade": {
+        "18-24": 1500000,
+        "25-34": 3000000,
+        "35-44": 2500000,
+        "45-54": 2000000,
+        "55+": 3000000
+      }
+    },
+    {
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "total_vacinados": 9000000,
+      "doses": {
+        "primeira_dose": 8500000,
+        "segunda_dose": 8000000,
+        "dose_unica": 150000,
+        "terceira_dose": 1000000
+      },
+      "vacinados_por_idade": {
+        "18-24": 1000000,
+        "25-34": 2500000,
+        "35-44": 2000000,
+        "45-54": 1500000,
+        "55+": 2000000
+      }
+    }
+  ]
+}

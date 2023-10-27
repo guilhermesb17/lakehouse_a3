@@ -15,7 +15,7 @@ services:
 
   minioa3:
     image: minio/minio
-    container_name: minio_a3
+    container_name: minioa3
     ports:
       - 9000:9000
       - 9001:9001
@@ -27,19 +27,28 @@ services:
     command: server /data --console-address ":9001"
     networks:
       - lakehouse_a3
-    
-  sparka3:
-    image: alexmerced/spark33-notebook
-    container_name: spark_a3
+
+  jupytera3:
+    image: jupyter/pyspark-notebook:x86_64-spark-3.5.0
+    container_name: jupytera3
     ports:
-      - 8888:8888
+      - "8888:8888"
+    volumes:
+      - ../data/jupyter/data:/home/jovyan/work
+      - ../data/jupyter/home:/home/jovyan
     env_file: ../conf/.env
+    environment:
+      - GRANT_SUDO=yes
+      - JUPYTER_ENABLE_LAB=yes
+    user: root
+    command: 
+      start-notebook.py --NotebookApp.token='' 
     networks:
       - lakehouse_a3
 
   nessiea3:
     image: projectnessie/nessie
-    container_name: nessie_a3
+    container_name: nessiea3
     ports:
       - 19120:19120
 
